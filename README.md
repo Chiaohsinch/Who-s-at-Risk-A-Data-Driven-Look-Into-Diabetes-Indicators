@@ -1,16 +1,16 @@
 # 🧠 Who's at Risk? A Data-Driven Look Into Diabetes Indicators
 
-A visual analytics project built with **Power BI**, **Excel**, and **Python**, exploring how key health indicators relate to diabetes risk levels.  
-The dashboard identifies trends and patterns across different BMI categories, age groups, and biometric metrics to better understand which factors most influence diabetes risk.
+A visual analytics project built using **Power BI**, **Excel**, and **Python** to explore how key health indicators relate to diabetes risk levels.  
+This dashboard identifies trends and patterns across BMI categories, age groups, and biometric metrics to better understand which factors most influence diabetes risk.
 
-![Dashboard Preview](Project02.pdf)
+📄 **[Dashboard Preview (PDF)](Project02.pdf)**
 
 ---
 
 ## 📌 Overview
 
-This dashboard presents a visual analysis of diabetes-related health indicators across BMI categories, age ranges, and risk classifications.  
-It explores the **correlation between biometric metrics and diabetes risk**, aiming to uncover high-risk populations based on:
+This project presents a visual analysis of diabetes-related health metrics categorized by BMI, age range, and risk levels.  
+It aims to uncover **high-risk populations** based on the following biometric indicators:
 
 - 🩸 Glucose  
 - 💉 Insulin  
@@ -24,14 +24,24 @@ It explores the **correlation between biometric metrics and diabetes risk**, aim
 
 Several derived fields were created during preprocessing using **Excel** and **Python**:
 
-### 🔹 Risk Classification (based on Glucose)
+### 🔹 Risk Classification (Based on Glucose)
 
-Glucose values were classified using the following logic:
+Glucose values were segmented into three risk levels using clinical thresholds:
 
 ```excel
-=IF(C2<100, "Low", IF(C2<150, "Medium", "High"))
+=IF(C2 < 100, "Low", IF(C2 < 150, "Medium", "High"))
+```
 
+### 🔹 BMI Category (Based on WHO Standards)
 
+| Category      | BMI Range (kg/m²) |
+|---------------|-------------------|
+| Underweight   | < 18.5            |
+| Normal        | 18.5 – 24.9       |
+| Overweight    | 25 – 29.9         |
+| Obese         | ≥ 30              |
+
+---
 
 ## 📊 Key Insights
 
@@ -43,65 +53,62 @@ Glucose values were classified using the following logic:
 | **Medium** | 120.80      | 139.44      | 33.52   | 72.88              |
 | **Low**    | 87.22       | 98.23       | 29.14   | 68.63              |
 
-- High-risk individuals have consistently higher **Glucose, Insulin, and Blood Pressure** levels.
-- Age also trends higher in the high-risk group (~38 years).
-- BMI alone is **not a sufficient predictor**, but is highly correlated with glucose and insulin elevation.
+- High-risk individuals show elevated **glucose**, **insulin**, and **blood pressure** levels.
+- **Age** trends higher in the high-risk group (~38 years).
+- **BMI** correlates with glucose/insulin but is not always a definitive risk predictor.
 
 ---
 
-
 ### 📍 BMI vs. Health Indicators
 
-Two combined visualizations illustrate how **BMI categories** and **risk groups** influence average indicator values:
+Visualizations show how BMI categories intersect with risk classifications:
 
-- **Obese individuals** in the High Risk group show the **highest levels** of Glucose, Insulin, and Blood Pressure.
-- **Even within normal BMI groups**, high glucose and insulin readings are observed in Medium/High Risk classifications.
+- **Obese individuals** in the high-risk group exhibit the highest glucose, insulin, and blood pressure levels.
+- Even within **normal BMI** groups, some individuals show elevated biometric risk, indicating BMI alone is insufficient for risk detection.
 
 ---
 
 ### 📍 Glucose by Age Across Risk Groups
 
-- Glucose levels vary across age in all risk groups, **with no strong upward trend**, indicating that **age alone does not determine glucose elevation**.
-- High-risk individuals appear across all age ranges, from 20s to 70s.
+- Glucose levels vary with age, but **no strong upward trend** is observed.
+- High-risk individuals appear across all age ranges, from 20s to 70s, suggesting **age is not the sole determinant** of risk.
 
 ---
 
 ## 📁 Dataset Description
 
-File: `diabetes_cleaned_final.csv`  
-- Missing or implausible zero values were replaced with `NaN`
-- Added derived columns:
-  - - `Classification`: High, Medium, Low 
-  - - `BMI_Category`: Obese, Overweight, Normal, Underweight
+**File**: `diabetes_cleaned_final.csv`
 
-| Column Name        | Description |
-|--------------------|-------------|
-| `Glucose`          | Plasma glucose concentration |
-| `Insulin`          | Serum insulin (μU/mL) |
-| `BloodPressure`    | Diastolic blood pressure (mm Hg) |
-| `BMI`              | Body mass index (kg/m²) |
-| `Age`              | Age in years |
-| `Pregnancies`      | Derived: Obese / Overweight / Normal / Underweight |
-| `SkinThickness`    | Derived: Obese / Overweight / Normal / Underweight |
-| `DiabetesPedigreeFunction`     | Derived: Obese / Overweight / Normal / Underweight |
-| `Classification`   | Risk Level: High / Medium / Low |
+Preprocessing steps:
+- Replaced missing or implausible zero values with `NaN`
+- Added derived fields for classification and BMI category
 
----
-
-## 📊 Tools Used
-
-- **Excel** – Feature engineer
-- **Power BI** – Visual analytics and dashboard development
-- **Python (pandas, numpy)** – Data preprocessing and cleansing
+| Column Name              | Description                                       |
+|--------------------------|---------------------------------------------------|
+| `Glucose`                | Plasma glucose concentration                      |
+| `Insulin`                | Serum insulin (μU/mL)                             |
+| `BloodPressure`          | Diastolic blood pressure (mm Hg)                 |
+| `BMI`                    | Body mass index (kg/m²)                           |
+| `Age`                    | Age in years                                      |
+| `Pregnancies`            | Number of pregnancies                             |
+| `SkinThickness`          | Triceps skinfold thickness                        |
+| `DiabetesPedigreeFunction` | Genetic predisposition score                    |
+| `Classification`         | Risk Level: High / Medium / Low (derived)         |
+| `BMI_Category`           | Obese / Overweight / Normal / Underweight (derived) |
 
 ---
 
-## 📈 Potential Improvements
+## 🛠️ Tools & Technologies
 
-- Add a custom **Risk Score** formula using weighted indicators
-- Apply **KMeans or Decision Tree** for unsupervised / supervised risk classification
-- Integrate **behavioral or lifestyle data** (if available) for holistic profiling
-- Enable live **web-embedded Power BI report** (via public Power BI service)
+- **Python** (`pandas`, `numpy`) – Data cleansing & preprocessing  
+- **Excel** – Feature engineering & early transformations  
+- **Power BI** – Dashboard creation & visual storytelling  
 
 ---
 
+## 🚀 Potential Improvements
+
+- Implement a **custom risk score** using weighted combinations of indicators  
+- Use **KMeans clustering** or **decision tree models** for risk stratification  
+- Integrate **lifestyle or behavioral data** for a more comprehensive profile  
+- Deploy an interactive **Power BI Web App** for real-time exploration  
