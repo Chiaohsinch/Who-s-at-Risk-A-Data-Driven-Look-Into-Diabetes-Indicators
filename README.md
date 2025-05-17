@@ -5,6 +5,9 @@ This dashboard identifies trends and patterns across BMI categories, age groups,
 
 📄 **[Dashboard Preview (PDF)](Project02.pdf)**
 
+Data Source: The dataset used in this analysis was obtained from Kaggle.
+Diabetes-Dashboard-Power BI - available at: [https://www.kaggle.com/datasets/aryanpatel0204/diabetes-dashboard-power-bi]
+
 ---
 
 ## 📌 Overview
