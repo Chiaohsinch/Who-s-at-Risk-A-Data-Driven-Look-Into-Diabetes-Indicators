@@ -1,7 +1,7 @@
-# Who-s-at-Risk-A-Data-Driven-Look-Into-Diabetes-Indicators
-# 🧠 Diabetes Risk Profiling Dashboard
+# 🧠 Who's at Risk? A Data-Driven Look Into Diabetes Indicators
 
-A visual analytics project using Power BI to explore how key health indicators relate to diabetes risk levels. This dashboard identifies trends and patterns across different BMI categories, age groups, and health metrics to better understand which factors most influence diabetes risk.
+A visual analytics project built with **Power BI**, **Excel**, and **Python**, exploring how key health indicators relate to diabetes risk levels.  
+The dashboard identifies trends and patterns across different BMI categories, age groups, and biometric metrics to better understand which factors most influence diabetes risk.
 
 ![Dashboard Preview](Project02.pdf)
 
@@ -9,24 +9,24 @@ A visual analytics project using Power BI to explore how key health indicators r
 
 ## 📌 Overview
 
-This dashboard presents a visual analysis of diabetes-related health indicators across different BMI categories, age ranges, and risk classifications.  
-It is also designed to explore the **correlations between key health metrics and diabetes risk**, helping to uncover high-risk groups based on indicators such as:
+This dashboard presents a visual analysis of diabetes-related health indicators across BMI categories, age ranges, and risk classifications.  
+It explores the **correlation between biometric metrics and diabetes risk**, aiming to uncover high-risk populations based on:
 
-- 🩸 Glucose
-- 💉 Insulin
-- ⚖️ BMI
-- ❤️ Blood Pressure
-- 🧓 Age
+- 🩸 Glucose  
+- 💉 Insulin  
+- ⚖️ BMI  
+- ❤️ Blood Pressure  
+- 🧓 Age  
 
 ---
 
 ## 🧪 Feature Engineering
 
-As part of the preprocessing workflow, several derived fields were created in Excel and Python:
+Several derived fields were created during preprocessing using **Excel** and **Python**:
 
-### 🔹 Classification (based on Glucose)
+### 🔹 Risk Classification (based on Glucose)
 
-An Excel `IF` formula was used to assign risk levels:
+Glucose values were classified using the following logic:
 
 ```excel
 =IF(C2<100, "Low", IF(C2<150, "Medium", "High"))
