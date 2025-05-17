@@ -24,13 +24,13 @@ It is also designed to explore the **correlations between key health metrics and
 
 ### 📍 Risk Group Health Profile (Treemap Summary)
 
-| Risk Level | Avg Glucose | Avg Insulin | Avg Age | BMI Category |
-|------------|-------------|-------------|---------|---------------|
-| **High**   | 171.03      | 202.82      | 38.04   | Obese/Overweight |
-| **Medium** | 120.80      | 139.44      | ~35     | Normal–Overweight |
-| **Low**    | 87.22       | 98.23       | 29.xx   | Normal/Underweight |
+| Risk Level | Avg Glucose | Avg Insulin | Avg Age | Avg Blood Pressure |
+|------------|-------------|-------------|---------|--------------------|
+| **High**   | 171.03      | 202.82      | 38.04   | 76.08              |
+| **Medium** | 120.80      | 139.44      | 33.52   | 72.88              |
+| **Low**    | 87.22       | 98.23       | 29.14   | 68.63              |
 
-- High-risk individuals have consistently higher **Glucose, Insulin, and BMI** levels.
+- High-risk individuals have consistently higher **Glucose, Insulin, and Blood Pressure** levels.
 - Age also trends higher in the high-risk group (~38 years).
 - BMI alone is **not a sufficient predictor**, but is highly correlated with glucose and insulin elevation.
 
@@ -57,8 +57,12 @@ Two combined visualizations illustrate how **BMI categories** and **risk groups*
 File: `diabetes_cleaned_final.csv`  
 - Missing or implausible zero values were replaced with `NaN`
 - Added derived columns:
-  - `BMI_Category`: Obese, Overweight, Normal, Underweight
-  - (Optional) `AgeGroup`, `Glucose_Level`, etc.
+  - 'Classification(Risk)': High, Medium, Low :
+      IF Glucose < 100       → "Low"
+      ELSE IF Glucose < 150  → "Medium"
+      ELSE                   → "High"
+
+  - - `BMI_Category`: Obese, Overweight, Normal, Underweight
 
 | Column Name        | Description |
 |--------------------|-------------|
@@ -67,8 +71,8 @@ File: `diabetes_cleaned_final.csv`
 | `BloodPressure`    | Diastolic blood pressure (mm Hg) |
 | `BMI`              | Body mass index (kg/m²) |
 | `Age`              | Age in years |
-| `Pregnancies`     | Derived: Obese / Overweight / Normal / Underweight |
-| `SkinThickness`     | Derived: Obese / Overweight / Normal / Underweight |
+| `Pregnancies`      | Derived: Obese / Overweight / Normal / Underweight |
+| `SkinThickness`    | Derived: Obese / Overweight / Normal / Underweight |
 | `DiabetesPedigreeFunction`     | Derived: Obese / Overweight / Normal / Underweight |
 | `Classification`   | Risk Level: High / Medium / Low |
 
