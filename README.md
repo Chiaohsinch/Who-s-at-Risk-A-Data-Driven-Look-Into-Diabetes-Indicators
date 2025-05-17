@@ -20,6 +20,19 @@ It is also designed to explore the **correlations between key health metrics and
 
 ---
 
+## 🧪 Feature Engineering
+
+As part of the preprocessing workflow, several derived fields were created in Excel and Python:
+
+### 🔹 Classification (based on Glucose)
+
+An Excel `IF` formula was used to assign risk levels:
+
+```excel
+=IF(C2<100, "Low", IF(C2<150, "Medium", "High"))
+
+---
+
 ## 📊 Key Insights
 
 ### 📍 Risk Group Health Profile (Treemap Summary)
@@ -35,6 +48,7 @@ It is also designed to explore the **correlations between key health metrics and
 - BMI alone is **not a sufficient predictor**, but is highly correlated with glucose and insulin elevation.
 
 ---
+
 
 ### 📍 BMI vs. Health Indicators
 
@@ -57,11 +71,7 @@ Two combined visualizations illustrate how **BMI categories** and **risk groups*
 File: `diabetes_cleaned_final.csv`  
 - Missing or implausible zero values were replaced with `NaN`
 - Added derived columns:
-  - - `Classification`: High, Medium, Low :
-      IF Glucose < 100       → "Low"
-      ELSE IF Glucose < 150  → "Medium"
-      ELSE                   → "High"
-
+  - - `Classification`: High, Medium, Low 
   - - `BMI_Category`: Obese, Overweight, Normal, Underweight
 
 | Column Name        | Description |
@@ -80,6 +90,7 @@ File: `diabetes_cleaned_final.csv`
 
 ## 📊 Tools Used
 
+- **Excel** – Feature engineer
 - **Power BI** – Visual analytics and dashboard development
 - **Python (pandas, numpy)** – Data preprocessing and cleansing
 
@@ -91,14 +102,6 @@ File: `diabetes_cleaned_final.csv`
 - Apply **KMeans or Decision Tree** for unsupervised / supervised risk classification
 - Integrate **behavioral or lifestyle data** (if available) for holistic profiling
 - Enable live **web-embedded Power BI report** (via public Power BI service)
-
----
-
-## 🧑‍💻 Author
-
-**Cindy Chang**  
-📧 chiaohsc@uci.edu 
-🎓 Master of Science in Business Analytics @ UC Irvine
 
 ---
 
