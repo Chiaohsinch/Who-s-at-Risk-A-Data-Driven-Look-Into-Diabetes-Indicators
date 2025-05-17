@@ -31,7 +31,7 @@ Glucose values were classified using the following logic:
 ```excel
 =IF(C2<100, "Low", IF(C2<150, "Medium", "High"))
 
----
+
 
 ## 📊 Key Insights
 
