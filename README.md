@@ -3,7 +3,7 @@
 
 A visual analytics project using Power BI to explore how key health indicators relate to diabetes risk levels. This dashboard identifies trends and patterns across different BMI categories, age groups, and health metrics to better understand which factors most influence diabetes risk.
 
-![Dashboard Preview]()
+![Dashboard Preview](Project02.pdf)
 
 ---
 
