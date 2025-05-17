@@ -57,7 +57,7 @@ Two combined visualizations illustrate how **BMI categories** and **risk groups*
 File: `diabetes_cleaned_final.csv`  
 - Missing or implausible zero values were replaced with `NaN`
 - Added derived columns:
-  - - 'Classification': High, Medium, Low :
+  - - `Classification`: High, Medium, Low :
       IF Glucose < 100       → "Low"
       ELSE IF Glucose < 150  → "Medium"
       ELSE                   → "High"
