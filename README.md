@@ -67,8 +67,10 @@ File: `diabetes_cleaned_final.csv`
 | `BloodPressure`    | Diastolic blood pressure (mm Hg) |
 | `BMI`              | Body mass index (kg/m²) |
 | `Age`              | Age in years |
+| `Pregnancies`     | Derived: Obese / Overweight / Normal / Underweight |
+| `SkinThickness`     | Derived: Obese / Overweight / Normal / Underweight |
+| `DiabetesPedigreeFunction`     | Derived: Obese / Overweight / Normal / Underweight |
 | `Classification`   | Risk Level: High / Medium / Low |
-| `BMI_Category`     | Derived: Obese / Overweight / Normal / Underweight |
 
 ---
 
